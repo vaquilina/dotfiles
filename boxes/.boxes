@@ -1,0 +1,31 @@
+# inherit from default config
+parent :global:
+
+BOX bracket
+
+AUTHOR   "Vince Aquilina"
+CREATED  "Fri 06 Oct 2023 07:05:52 PM EDT"
+REVISION "1.1"
+REVDATE  "Sun 08 Oct 2023 01:40:44 AM EDT"
+TAGS     ("box", "simple")
+
+SAMPLE
+    ┏             ┓
+    ┃             ┃
+    ┃             ┃
+    ┃             ┃
+    ┗             ┛
+ENDS
+
+SHAPES {
+    nw ("┏") n (" ") ne (" ┓")
+     w ("┃")          e (" ┃")
+    sw ("┗") s (" ") se (" ┛")
+}
+
+PADDING { h 1 }
+
+ELASTIC (n,s,e,w)
+
+END bracket
+

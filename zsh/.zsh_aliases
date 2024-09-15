@@ -1,0 +1,5 @@
+alias lsa='eza -laG --group-directories-first'
+alias pacman='pacman --color=always'
+alias yay='yay --color=always'
+alias neom='neo-matrix -aDFc gold --colormode=256 -d 0.3'
+
