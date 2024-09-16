@@ -103,6 +103,13 @@ vim.keymap.set("i", "<F5>", '<c-r>=strftime("%c")<cr>')
 -- toggle nvim-tree explorer (requires nvim-tree plugin)
 vim.keymap.set("n", "<c-e>", ":NvimTreeToggle<cr>")
 
+-- emulate i_CTRL+r in terminal
+vim.keymap.set("t", "<c-r>", function()
+  local next_char_code = vim.fn.getchar()
+  local next_char = vim.fn.nr2char(next_char_code)
+  return '<C-\\><C-N>"' .. next_char .. "pi"
+end, { expr = true })
+
 --------------- AUTOCOMMANDS
 -- Highlight on yank
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
