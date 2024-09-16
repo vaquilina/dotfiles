@@ -62,6 +62,9 @@ export MOZ_ENABLE_WAYLAND=1
 # libreoffice
 export SAL_USE_VCLPLUGIN=qt6
 
+# krita (use kvantum theme)
+export KRITA_NO_STYLE_OVERRIDE=1
+
 # dotfiles repo
 export DOT=$HOME/.dotfiles
 
