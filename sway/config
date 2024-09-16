@@ -227,6 +227,9 @@ smart_borders on
     for_window [app_id="Bitwarden"] resize set width 1600 height 800
     for_window [app_id="Bitwarden"] move position center
 
+    # askpass
+    for_window [title="HALT!"] floating enable
+
 # Label apps running under XWayland
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 

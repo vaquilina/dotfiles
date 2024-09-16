@@ -21,8 +21,8 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-# use wmenu -P for gui password entry
-export SUDO_ASKPASS='/usr/bin/wmenu -P'
+# graphical password prompt
+export SUDO_ASKPASS="/home/vince/askpass"
 
 # set editor to neovim
 export EDITOR=nvim
