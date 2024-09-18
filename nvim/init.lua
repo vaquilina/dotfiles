@@ -48,6 +48,8 @@ vim.o.sidescrolloff = 5 -- minimum number of columns while side-scrolling
 vim.wo.foldmethod = "expr" -- fold levels defined by expression
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- let treesitter handle folding
 
+vim.o.formatexpr = "v:lua.require'conform'.formatexpr()" -- format handled by conform.nvim
+
 -- visualize tabs, newlines, spaces
 vim.o.listchars = "tab:→ ,eol:↴,space:∙"
 
@@ -104,40 +106,38 @@ vim.keymap.set("n", "<c-e>", ":NvimTreeToggle<cr>")
 
 -- emulate i_CTRL+r in terminal
 vim.keymap.set("t", "<c-r>", function()
-    local next_char_code = vim.fn.getchar()
-    local next_char = vim.fn.nr2char(next_char_code)
-    return '<C-\\><C-N>"' .. next_char .. "pi"
+  local next_char_code = vim.fn.getchar()
+  local next_char = vim.fn.nr2char(next_char_code)
+  return '<C-\\><C-N>"' .. next_char .. "pi"
 end, { expr = true })
 
 --------------- AUTOCOMMANDS
 -- Highlight on yank
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-    command = "silent! lua vim.highlight.on_yank()",
+  command = "silent! lua vim.highlight.on_yank()",
 })
 
 -- Enable filetype recognition & syntax highlighting for boxes config files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = {
-        vim.fn.expand("$HOME") .. "/.boxes",
-        "/etc/boxes-config",
-    },
-    command = "setfiletype boxes",
+  pattern = {
+    vim.fn.expand("$HOME") .. "/.boxes",
+    "/etc/boxes-config",
+  },
+  command = "setfiletype boxes",
 })
 
 --------------- PLUGINS
 --  I  C    (I - installed, C - configured)
--- [x][ ] gruvbox.nvim      - lua port of gruvbox colorscheme
--- [x][ ] plenary.nvim      - lua api for neovim
+-- [x][x] gruvbox.nvim      - lua port of gruvbox colorscheme
+-- [x][-] plenary.nvim      - lua api for neovim
 -- [x][ ] marks             - marks in sign column
--- [x][ ] nvim-tree         - filesystem tree explorer
--- [x][ ] nvim-web-devicons - icons for nvim-tree
+-- [x][x] nvim-tree         - filesystem tree explorer
+-- [x][x] nvim-web-devicons - icons for nvim-tree
 -- [x][ ] flash             - search labels
 -- [x][ ] indent-blankline  - show indents & current context
 -- [x][ ] gitsigns.nvim     - git marks/blame line -> needs keybinds
--- [ ][ ] nvim-treesitter   - language parsers (highlighting, indentation, folding)
-
--- needs autocomplete, linting, formatting, diagnostics, code actions, auto-close tags
+-- [x][ ] nvim-treesitter   - language parsers (highlighting, indentation, folding)
+-- [x][ ] conform           - code formatting
 
 -- lazy plugin manager
 require("config.lazy")
-
