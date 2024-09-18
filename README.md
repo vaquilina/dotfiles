@@ -23,14 +23,14 @@
 
 | Type | Theme | URL |
 | ---- | ----- | --- |
-| GTK Theme | Gruvbox-Material-Dark-HIDPI | [](https://github.com/TheGreatMcPain/gruvbox-material-gtk) |
-| GTK Cursors | Simple-Gruvbox-Dark | [](https://www.pling.com/p/1932768/) |
-| GTK Icons | Gruvbox Plus Dark | [](https://www.gnome-look.org/s/Gnome/p/1961046) |
-| GUI Font | AnonymicePro Nerd Font | [](https://www.nerdfonts.com/) |
-| Terminal Font | Terminess Nerd Font | [](https://www.nerdfonts.com/) |
-| Qt/Kvantum Theme | Gruvbox-Dark-Brown | [](https://store.kde.org/p/1976481) |
-| Neovim Colorscheme | gruvbox.nvim | [](https://github.com/ellisonleao/gruvbox.nvim) |
-| Vifm Colorscheme | gruvbox | [](https://github.com/vifm/vifm-colors/blob/master/gruvbox.vifm) |
+| GTK Theme | Gruvbox-Material-Dark-HIDPI | <https://github.com/TheGreatMcPain/gruvbox-material-gtk> |
+| GTK Cursors | Simple-Gruvbox-Dark | <https://www.pling.com/p/1932768/> |
+| GTK Icons | Gruvbox Plus Dark | <https://www.gnome-look.org/s/Gnome/p/1961046> |
+| GUI Font | AnonymicePro Nerd Font | <https://www.nerdfonts.com/> |
+| Terminal Font | Terminess Nerd Font | <https://www.nerdfonts.com/> |
+| Qt/Kvantum Theme | Gruvbox-Dark-Brown | <https://store.kde.org/p/1976481> |
+| Neovim Colorscheme | gruvbox.nvim | <https://github.com/ellisonleao/gruvbox.nvim> |
+| Vifm Colorscheme | gruvbox | <https://github.com/vifm/vifm-colors/blob/master/gruvbox.vifm> |
 | foot Theme | gruvbox | built-in |
 
 ## Neovim Plugins
@@ -55,25 +55,25 @@ Plugins are managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 
 | Tool | License | Use | Link |
 | ---- | ------- | --- | ---- |
-| nwg-look | free | graphical GTK configurator | [](https://github.com/nwg-piotr/nwg-look) |
-| kvantum | free | Qt theme engine/configurator | [](https://store.kde.org/p/1005410) |
-| wev | free | xev-like wayland event viewer | [](https://github.com/jwrdegoede/wev) |
-| solaar | free | logitech device manager | [](https://github.com/pwr-Solaar/Solaar) |
-| insync | paid | google drive/dropbox sync | [](https://www.insynchq.com/) |
-| udiskie | free | automount removable media | [](https://github.com/coldfix/udiskie) |
-| fastfetch | free | system information fetcher | [](https://github.com/fastfetch-cli/fastfetch) |
-| dunst | free | notification daemon | [](https://github.com/dunst-project/dunst) |
-| sway | free | window manager | [](https://swaywm.org/) |
-| swayimg | free | image viewer | [](https://github.com/artemsen/swayimg) |
-| swaylock | free | screen locker | [](https://github.com/swaywm/swaylock) |
-| foot | free | terminal emulator | [](https://codeberg.org/dnkl/foot) |
-| krita | free | image editor | [](https://krita.org/en/) |
-| libreoffice | free | office suite | [](https://www.libreoffice.org/) |
-| vifm | free | file manager | [](https://vifm.info/) |
-| network-manager-applet | free | network manager tray icon | [](https://gitlab.gnome.org/GNOME/network-manager-applet) |
-| bitwarden | free | password manager | [](https://bitwarden.com/) |
-| vesktop | free | customizable discord client | [](https://github.com/Vencord/Vesktop) |
-| kid3 | free | audio tagger | [](https://kid3.kde.org/) |
+| nwg-look | free | graphical GTK configurator | <https://github.com/nwg-piotr/nwg-look> |
+| kvantum | free | Qt theme engine/configurator | <https://store.kde.org/p/1005410> |
+| wev | free | xev-like wayland event viewer | <https://github.com/jwrdegoede/wev> |
+| solaar | free | logitech device manager | <https://github.com/pwr-Solaar/Solaar> |
+| insync | paid | google drive/dropbox sync | <https://www.insynchq.com/> |
+| udiskie | free | automount removable media | <https://github.com/coldfix/udiskie> |
+| fastfetch | free | system information fetcher | <https://github.com/fastfetch-cli/fastfetch> |
+| dunst | free | notification daemon | <https://github.com/dunst-project/dunst> |
+| sway | free | window manager | <https://swaywm.org/> |
+| swayimg | free | image viewer | <https://github.com/artemsen/swayimg> |
+| swaylock | free | screen locker | <https://github.com/swaywm/swaylock> |
+| foot | free | terminal emulator | <https://codeberg.org/dnkl/foot> |
+| krita | free | image editor | <https://krita.org/en/> |
+| libreoffice | free | office suite | <https://www.libreoffice.org/> |
+| vifm | free | file manager | <https://vifm.info/> |
+| network-manager-applet | free | network manager tray icon | <https://gitlab.gnome.org/GNOME/network-manager-applet> |
+| bitwarden | free | password manager | <https://bitwarden.com/> |
+| vesktop | free | customizable discord client | <https://github.com/Vencord/Vesktop> |
+| kid3 | free | audio tagger | <https://kid3.kde.org/> |
 
 ## Useful Links
 
