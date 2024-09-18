@@ -137,9 +137,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 -- [x][x] nvim-tree         - filesystem tree explorer
 -- [x][x] nvim-web-devicons - icons for nvim-tree
 -- [x][x] indent-blankline  - show indents & current context
--- [x][x] gitsigns.nvim     - git marks/blame line -> needs keybinds
+-- [x][x] gitsigns.nvim     - git marks/blame line
 -- [x][x] nvim-treesitter   - language parsers (highlighting, indentation, folding)
 -- [x][x] nvim-ts-autotag   - auto-close/rename of html tags
+-- [x][x] nvim-lspconfig    - lsp configuration manager
 -- [x][x] conform           - code formatting
 
 -- lazy plugin manager
