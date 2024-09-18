@@ -3,12 +3,12 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
-        config = true
+        config = true,
     },
+    -- marks in sign column
     {
         "chentoast/marks.nvim",
         event = "VeryLazy",
-        opts = {}
-    }
+        opts = {},
+    },
 }
-

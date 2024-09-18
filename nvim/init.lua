@@ -98,6 +98,9 @@ vim.keymap.set("n", "<leader>bs", ":set scrollbind!<cr>")
 -- toggle cursor-binding in current window
 vim.keymap.set("n", "<leader>bc", ":set cursorbind!<cr>")
 
+-- toggle git blame line (gitsigns)
+vim.keymap.set("n", "<leader>g", ":Gitsigns toggle_current_line_blame<cr>")
+
 -- insert current date/time in insert mode
 vim.keymap.set("i", "<F5>", '<c-r>=strftime("%c")<cr>')
 
@@ -106,38 +109,38 @@ vim.keymap.set("n", "<c-e>", ":NvimTreeToggle<cr>")
 
 -- emulate i_CTRL+r in terminal
 vim.keymap.set("t", "<c-r>", function()
-  local next_char_code = vim.fn.getchar()
-  local next_char = vim.fn.nr2char(next_char_code)
-  return '<C-\\><C-N>"' .. next_char .. "pi"
+    local next_char_code = vim.fn.getchar()
+    local next_char = vim.fn.nr2char(next_char_code)
+    return '<C-\\><C-N>"' .. next_char .. "pi"
 end, { expr = true })
 
 --------------- AUTOCOMMANDS
 -- Highlight on yank
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-  command = "silent! lua vim.highlight.on_yank()",
+    command = "silent! lua vim.highlight.on_yank()",
 })
 
 -- Enable filetype recognition & syntax highlighting for boxes config files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = {
-    vim.fn.expand("$HOME") .. "/.boxes",
-    "/etc/boxes-config",
-  },
-  command = "setfiletype boxes",
+    pattern = {
+        vim.fn.expand("$HOME") .. "/.boxes",
+        "/etc/boxes-config",
+    },
+    command = "setfiletype boxes",
 })
 
 --------------- PLUGINS
 --  I  C    (I - installed, C - configured)
 -- [x][x] gruvbox.nvim      - lua port of gruvbox colorscheme
 -- [x][-] plenary.nvim      - lua api for neovim
--- [x][ ] marks             - marks in sign column
+-- [x][x] marks             - marks in sign column
 -- [x][x] nvim-tree         - filesystem tree explorer
 -- [x][x] nvim-web-devicons - icons for nvim-tree
--- [x][ ] flash             - search labels
--- [x][ ] indent-blankline  - show indents & current context
--- [x][ ] gitsigns.nvim     - git marks/blame line -> needs keybinds
--- [x][ ] nvim-treesitter   - language parsers (highlighting, indentation, folding)
--- [x][ ] conform           - code formatting
+-- [x][x] indent-blankline  - show indents & current context
+-- [x][x] gitsigns.nvim     - git marks/blame line -> needs keybinds
+-- [x][x] nvim-treesitter   - language parsers (highlighting, indentation, folding)
+-- [x][x] nvim-ts-autotag   - auto-close/rename of html tags
+-- [x][x] conform           - code formatting
 
 -- lazy plugin manager
 require("config.lazy")
