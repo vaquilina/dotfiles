@@ -1,17 +1,17 @@
 {
-	"settings": {
-		"workspace": {
-			"library": ["/usr/share/nvim/runtime/lua"],
-			"maxPreload": 2000,
-			"preloadFileSize": 1000
-		}
-	},
-	"runtime": {
-		"version": "Lua 5.4"
-	},
-	"diagnostics": {
-		"enable": true,
-		"globals": ["vim"],
-		"disable": ["lowercase-global"]
-	}
+    "settings": {
+        "workspace": {
+            "library": ["/usr/share/nvim/runtime/lua"],
+            "maxPreload": 2000,
+            "preloadFileSize": 1000
+        }
+    },
+    "runtime": {
+        "version": "Lua 5.4"
+    },
+    "diagnostics": {
+        "enable": true,
+        "globals": ["vim"],
+        "disable": ["lowercase-global"]
+    }
 }

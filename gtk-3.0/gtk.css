@@ -1,20 +1,19 @@
 * {
-  text-shadow: none;
+    text-shadow: none;
 }
 
 /** Some apps use titlebar class and some window */
 .titlebar,
 window {
-	border-radius: 0;
-	box-shadow: none;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /** also remove shadows */
 decoration {
-	box-shadow: none;
+    box-shadow: none;
 }
 
 decoration:backdrop {
-	box-shadow: none;
+    box-shadow: none;
 }
-

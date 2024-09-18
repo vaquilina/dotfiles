@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "AnonymicePro Nerd Font";
+    font-family: "AnonymicePro Nerd Font", monospace;
     font-size: 10pt;
 }
 
@@ -41,7 +41,7 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
+    background-color: #64727d;
     box-shadow: inset 0 -3px #ffffff;
 }
 
@@ -103,8 +103,9 @@ button:hover {
     color: #282828;
 }
 
-#battery.charging, #battery.plugged {
-    background-color: #26A65B;
+#battery.charging,
+#battery.plugged {
+    background-color: #26a65b;
 }
 
 @keyframes blink {
@@ -139,7 +140,7 @@ label:focus {
 }
 
 #disk {
-    background-color: #964B00;
+    background-color: #964b00;
 }
 
 #backlight {
@@ -178,10 +179,12 @@ label:focus {
 }
 
 #tray > .passive {
+    /* biome-ignore lint/correctness/noUnknownProperty: gtk */
     -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
+    /* biome-ignore lint/correctness/noUnknownProperty: gtk */
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
 }
@@ -219,7 +222,7 @@ label:focus {
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
 }
 
 #privacy {
@@ -244,6 +247,6 @@ label:focus {
 }
 
 #bluetooth {
-    background-color: #83A598;
+    background-color: #83a598;
     color: #000;
 }
