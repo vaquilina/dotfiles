@@ -41,7 +41,7 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: #64727d;
+    background-color: #458588;
     box-shadow: inset 0 -3px #ffffff;
 }
 
@@ -70,9 +70,11 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #bluetooth,
-#systemd-failed-units {
+#systemd-failed-units,
+#custom-updates {
+    color: #282828;
+    background-color: #ebdbb2;
     padding: 0 10px;
-    color: #ebdbb2;
     border-radius: 1px;
     margin-top: 2px;
     margin-bottom: 2px;
@@ -95,12 +97,8 @@ button:hover {
 }
 
 #clock {
-    background-color: #3c3856;
-}
-
-#battery {
-    background-color: #f2e5bc;
-    color: #282828;
+    background-color: transparent;
+    color: #e7d7ad;
 }
 
 #battery.charging,
@@ -130,44 +128,20 @@ label:focus {
     background-color: #000000;
 }
 
-#cpu {
-    background-color: #689d6a;
-    color: #000000;
-}
-
-#memory {
-    background-color: #b16286;
-}
-
-#disk {
-    background-color: #964b00;
-}
-
-#backlight {
-    background-color: #a89984;
-    color: #000;
-}
-
-#network {
-    background-color: #458588;
-}
-
 #network.disconnected {
-    background-color: #83a598;
-}
-
-#pulseaudio {
-    background-color: #d79921;
-    color: #000000;
+    background-color: #928374;
+    color: #3c3836;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    background-color: #928374;
+    color: #3c3836;
 }
 
-#temperature {
-    background-color: #98971a;
+#bluetooth.off,
+#bluetooth.disabled {
+    background-color: #928374;
+    color: #3c3836;
 }
 
 #temperature.critical {
@@ -175,7 +149,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #282828;
+    background-color: transparent;
 }
 
 #tray > .passive {
@@ -244,9 +218,4 @@ label:focus {
 
 #privacy-item.audio-out {
     background-color: #0069d4;
-}
-
-#bluetooth {
-    background-color: #83a598;
-    color: #000;
 }
