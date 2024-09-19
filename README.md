@@ -51,6 +51,11 @@ Plugins are managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 | nvim-lspconfig | lsp configs | `nvim/lua/plugins/coding.lua` | neovim/nvim-lspconfig |
 | conform.nvim | code formatter | `nvim/lua/plugins/coding.lua` | stevearc/conform.nvim |
 
+## Extra Waybar Modules
+| Module | Link |
+| ------ | ---- |
+| waybar-module-pacman-updates | <https://github.com/coffebar/waybar-module-pacman-updates> |
+
 ## Tools
 
 | Tool | License | Use | Link |
