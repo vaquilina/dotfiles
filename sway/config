@@ -38,7 +38,8 @@ set $gruv_purple1 #B16286
 set $gruv_blue0 #83A598
 set $gruv_blue1 #7FA2AC
 set $gruv_blue2 #458588
-set $gruv_cream #E7D7AD
+set $gruv_cream0 #E7D7AD
+set $gruv_cream1 #EBDBB2
 
 # Launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened on the original workspace that the command was run on.
