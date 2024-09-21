@@ -1,6 +1,7 @@
 -- ▘  ▘▗   ▜
 -- ▌▛▌▌▜▘  ▐ ▌▌▀▌ Vince Aquilina
 -- ▌▌▌▌▐▖▗ ▐▖▙▌█▌ updated for neovim v0.11
+-- cels-disable-missing-closed
 --------------- OPTIONS
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1 -- use nvim-tree instead
@@ -142,6 +143,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 -- [x][x] nvim-ts-autotag   - auto-close/rename of html tags
 -- [x][x] nvim-lspconfig    - lsp configuration manager
 -- [x][x] conform           - code formatting
+-- [x][x] coq_nvim          - code autocompletion/snippets
 
 -- lazy plugin manager
 require("config.lazy")

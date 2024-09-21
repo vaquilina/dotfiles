@@ -50,6 +50,7 @@ Plugins are managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 | nvim-ts-autotag | auto close/rename HTML tags | `nvim/lua/plugins/coding.lua` | windwp/nvim-ts-autotag |
 | nvim-lspconfig | lsp configs | `nvim/lua/plugins/coding.lua` | neovim/nvim-lspconfig |
 | conform.nvim | code formatter | `nvim/lua/plugins/coding.lua` | stevearc/conform.nvim |
+| coq_nvim | code autocomplete/snippets | `nvim/lua/plugins/coding.lua` | ms-jpq/coq_nvim |
 
 ## Extra Waybar Modules
 | Module | Link |
