@@ -143,6 +143,9 @@ return {
 
             -- sqls
             lspconfig.sqls.setup({})
+
+            -- pkgbuild
+            lspconfig.pkgbuild_language_server.setup({})
         end,
     },
     -- conform
