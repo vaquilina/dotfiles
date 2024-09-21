@@ -65,30 +65,44 @@ return {
     -- lspconfig
     {
         "neovim/nvim-lspconfig",
+        lazy = false, -- REQUIRED for coq_nvim,
+        dependencies = {
+            { "ms-jpq/coq_nvim", branch = "coq" },
+            { "ms-jpq/coq.artifacts", branch = "artifacts" },
+        },
+        init = function()
+            vim.g.coq_settings = {
+                auto_start = "shut-up",
+            }
+        end,
         config = function()
             local lspconfig = require("lspconfig")
+            local coq = require("coq")
 
             -- bash
-            lspconfig.bashls.setup({})
+            lspconfig.bashls.setup(coq.lsp_ensure_capabilities({}))
 
             -- c/c++
-            lspconfig.clangd.setup({})
+            lspconfig.clangd.setup(coq.lsp_ensure_capabilities({}))
 
             -- cmake
             lspconfig.cmake.setup({})
 
             -- js/tx/jsx/tsx/json/css/graphql
-            lspconfig.biome.setup({})
+            lspconfig.biome.setup(coq.lsp_ensure_capabilities({}))
 
             -- html
             local html_capabilities = vim.lsp.protocol.make_client_capabilities()
             html_capabilities.textDocument.completion.completionItem.snippetSupport = true
-            lspconfig.html.setup({
+            lspconfig.html.setup(coq.lsp_ensure_capabilities({
                 capabilities = html_capabilities,
-            })
+            }))
+
+            -- custom elements
+            lspconfig.custom_elements_ls.setup({})
 
             -- lua
-            lspconfig.lua_ls.setup({
+            lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({
                 on_init = function(client)
                     local path = client.workspace_folders[1].name
                     if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
@@ -116,10 +130,10 @@ return {
                 settings = {
                     Lua = {},
                 },
-            })
+            }))
 
             -- markdown
-            lspconfig.marksman.setup({})
+            lspconfig.marksman.setup(coq.lsp_ensure_capabilities({}))
 
             -- php
             lspconfig.phpactor.setup({})
@@ -131,7 +145,6 @@ return {
             lspconfig.sqls.setup({})
         end,
     },
-
     -- conform
     {
         "stevearc/conform.nvim",
