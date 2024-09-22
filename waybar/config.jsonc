@@ -145,10 +145,10 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "bluetooth": {
-        "format": "󰂯 {status}",
-        "format-off": "󰂲 {status}",
-        "format-disabled": "󰂲 {status}",
-        "format-connected": "󰂱 {num_connections} {device_alias}"
+        "format": "{status} 󰂯",
+        "format-off": "{status} 󰂲",
+        "format-disabled": "{status} 󰂲",
+        "format-connected": "{num_connections} {device_alias} 󰂱"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
