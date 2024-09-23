@@ -1,0 +1,159 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "arch2",
+        "padding": {
+            "top": 7,
+            "right": 2,
+            "left": 2
+        }
+    },
+    "display": {
+        "separator": "⭬ ",
+        "color": {
+            "separator": "bright_"
+        },
+        "key": {
+            "type": "both",
+            "width": 26,
+            "paddingLeft": 2
+        },
+        "constants": [
+            "────────────────────────────"
+        ]
+    },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "┌{$1} {#1}System Information{#} {$1}┐"
+        },
+        "break",
+        /* meta */
+        {
+            "type": "version",
+            "key": "Version           "
+        },
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 31,
+            "symbol": "square"
+        },
+        "break",
+        /* hardware */
+        {
+            "type": "host",
+            "key": "Host              "
+        },
+        {
+            "type": "chassis",
+            "key": "Chassis           "
+        },
+        {
+            "type": "battery",
+            "key": "Battery           "
+        },
+        {
+            "type": "board",
+            "key": "Board             "
+        },
+        {
+            "type": "cpu",
+            "key": "CPU               "
+        },
+        {
+            "type": "gpu",
+            "key": "GPU               ",
+            "format": "{1} {2} ({3}) [{6}]",
+            "driverSpecific": true
+        },
+        {
+            "type": "disk",
+            "key": "Disk (/)          "
+        },
+        {
+            "type": "memory",
+            "key": "Memory            "
+        },
+        "break",
+        /* OS */
+        {
+            "type": "bios",
+            "key": "Bios (UEFI)       "
+        },
+        {
+            "type": "bootmgr",
+            "key": "Bootmgr           "
+        },
+        {
+            "type": "initsystem",
+            "key": "Init System       "
+        },
+        {
+            "type": "os",
+            "key": "OS                "
+        },
+        {
+            "type": "kernel",
+            "key": "Kernel            "
+        },
+        {
+            "type": "packages",
+            "key": "Packages          "
+        },
+        {
+            "type": "uptime",
+            "key": "Uptime            "
+        },
+        "break",
+        /* terminal */
+        {
+            "type": "shell",
+            "key": "Shell             "
+        },
+        {
+            "type": "terminal",
+            "key": "Terminal          "
+        },
+        {
+            "type": "terminalfont",
+            "key": "Terminal Font     "
+        },
+        {
+            "type": "editor",
+            "key": "Editor            "
+        },
+        "break",
+        /* DE/WM */
+        {
+            "type": "display",
+            "key": "Display           "
+        },
+        {
+            "type": "wm",
+            "key": "WM                "
+        },
+        {
+            "type": "theme",
+            "key": "Theme             "
+        },
+        {
+            "type": "icons",
+            "key": "Icons             "
+        },
+        {
+            "type": "cursor",
+            "key": "Cursors           "
+        },
+        {
+            "type": "font",
+            "key": "GUI Font          "
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "└{$1}────────────────────{$1}┘"
+        },
+        "break"
+    ]
+}
