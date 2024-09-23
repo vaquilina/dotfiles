@@ -88,8 +88,27 @@ return {
             -- cmake
             lspconfig.cmake.setup({})
 
-            -- js/tx/jsx/tsx/json/css/graphql
-            lspconfig.biome.setup(coq.lsp_ensure_capabilities({}))
+            -- js/ts/jsx/tsx/json/css/graphql
+            lspconfig.biome.setup(coq.lsp_ensure_capabilities({
+                filetypes = {
+                    "javascript",
+                    "javascriptreact",
+                    "typescript",
+                    "typescript.tsx",
+                    "typescriptreact",
+                    "astro",
+                    "svelte",
+                    "vue",
+                    "css",
+                },
+            }))
+
+            -- json
+            local json_capabilities = vim.lsp.protocol.make_client_capabilities()
+            json_capabilities.textDocument.completion.completionItem.snippetSupport = true
+            lspconfig.jsonls.setup(coq.lsp_ensure_capabilities({
+                capabilities = json_capabilities,
+            }))
 
             -- html
             local html_capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -160,6 +179,7 @@ return {
                     c = { "clang-format" },
                     cpp = { "clang-format" },
                     css = { "biome" },
+                    html = { "htmlbeautifier" },
                     javascript = { "biome" },
                     javascriptreact = { "biome" },
                     json = { "biome" },
