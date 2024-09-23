@@ -94,8 +94,10 @@ PROMPT='┌ %B%n@%m%b %F{5}%D %T%f %S$(git_branch_name)%s
 RPROMPT='
 ${return_code}'
 
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+
 # path
-PATH=$PATH:/home/vince/.local/share/gem/ruby/3.0.0/bin:/usr/lib/ruby/gems/3.0.0:/home/vince/.local/bin
+export PATH=$PATH:$GEM_HOME/bin:/home/vince/.local/bin
 
 # caniuse completion
 . <(caniuse --completion)
