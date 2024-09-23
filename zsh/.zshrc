@@ -48,15 +48,14 @@ export GDK_BACKEND=wayland
 # pager
 export PAGER=less
 
-# force GBM backend buffer api (proprietary nvidia driver)
-#export GBM_BACKEND=nvidia-drm
-#export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# avoid loading nvidia modules
+export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
+
+# NVK does not yet support Pascal gpus
+export NVK_I_WANT_A_BROKEN_VULKAN_DRIVER=1
 
 # firefox
 export MOZ_ENABLE_WAYLAND=1
-#export __NV_PRIME_RENDER_OFFLOAD=1
-#export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-#export __GLX_VENDOR_LIBRARY_NAME=nvidia
 #export GTK_USE_PORTAL=1
 
 # libreoffice
