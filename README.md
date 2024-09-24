@@ -24,7 +24,7 @@
 
 | Type | Theme | URL |
 | ---- | ----- | --- |
-| GTK Cursors | Simple-Gruvbox-Dark | <https://www.pling.com/p/1932768/> |
+| GTK Cursors | Simp1e-Gruvbox-Dark | <https://www.pling.com/p/1932768/> |
 | GTK Icons | Gruvbox Plus Dark | <https://www.gnome-look.org/s/Gnome/p/1961046> |
 | GTK Theme | Gruvbox-Material-Dark-HIDPI | <https://github.com/TheGreatMcPain/gruvbox-material-gtk> |
 | GUI Font | AnonymicePro Nerd Font | <https://www.nerdfonts.com/> |
