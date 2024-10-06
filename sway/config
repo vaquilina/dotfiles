@@ -82,6 +82,9 @@ output eDP-2 resolution 3840x2160 background ~/pictures/wallpapers/ark_fb_16_big
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+input "1118:35:Microsoft_Microsoft_Trackball_Optical__" {
+    pointer_accel 1
+}
 
 ### Visual
 # Font
