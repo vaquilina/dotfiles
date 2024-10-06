@@ -219,3 +219,9 @@ label:focus {
 #privacy-item.audio-out {
     background-color: #0069d4;
 }
+
+#systemd-failed-units {
+    background-color: transparent;
+    border: 2px solid red;
+    margin: 0 10px;
+}
