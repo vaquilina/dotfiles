@@ -72,6 +72,7 @@ return {
         },
         init = function()
             vim.g.coq_settings = {
+                -- suppress welcome message
                 auto_start = "shut-up",
             }
         end,
@@ -88,7 +89,7 @@ return {
             -- cmake
             lspconfig.cmake.setup({})
 
-            -- js/ts/jsx/tsx/json/css/graphql
+            -- js/ts/jsx/tsx/json/css/graphql (biome)
             lspconfig.biome.setup(coq.lsp_ensure_capabilities({
                 filetypes = {
                     "javascript",
@@ -118,7 +119,7 @@ return {
             }))
 
             -- custom elements
-            lspconfig.custom_elements_ls.setup({})
+            lspconfig.custom_elements_ls.setup(coq.lsp_ensure_capabilities({}))
 
             -- lua
             lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({
@@ -155,16 +156,16 @@ return {
             lspconfig.marksman.setup(coq.lsp_ensure_capabilities({}))
 
             -- php
-            lspconfig.phpactor.setup({})
+            lspconfig.phpactor.setup(coq.lsp_ensure_capabilities({}))
 
             -- rust
-            lspconfig.rust_analyzer.setup({})
+            lspconfig.rust_analyzer.setup(coq.lsp_ensure_capabilities({}))
 
             -- sqls
-            lspconfig.sqls.setup({})
+            lspconfig.sqls.setup(coq.lsp_ensure_capabilities({}))
 
             -- pkgbuild
-            lspconfig.pkgbuild_language_server.setup({})
+            lspconfig.pkgbuild_language_server.setup(coq.lsp_ensure_capabilities({}))
         end,
     },
     -- conform
