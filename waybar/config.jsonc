@@ -2,8 +2,15 @@
 {
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "spacing": 2, // Gaps between modules (4px)
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-center": ["systemd-failed-units", "sway/window"],
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad"
+    ],
+    "modules-center": [
+        "systemd-failed-units",
+        "sway/window"
+    ],
     "modules-right": [
         "mpd",
         "idle_inhibitor",
@@ -26,7 +33,10 @@
     "sway/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
-        "format-icons": ["", ""],
+        "format-icons": [
+            "",
+            ""
+        ],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
@@ -107,7 +117,11 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""],
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
         "tooltip-format": "{temperatureF}°F"
     },
     "systemd-failed-units": {
@@ -115,7 +129,17 @@
     },
     "backlight": {
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "tooltip": false
     },
     "battery": {
@@ -133,7 +157,13 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["󰂎", "󰁻", "󰁽", "󰂁", "󰁹"]
+        "format-icons": [
+            "󰂎",
+            "󰁻",
+            "󰁽",
+            "󰂁",
+            "󰁹"
+        ]
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -165,9 +195,13 @@
             "phone": "",
             "portable": "󰜟",
             "car": "󰄋",
-            "default": ["󰕿", "󰖀", "󰕾"]
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pwvucontrol"
     },
     "custom/updates": {
         "format": "{} {icon}",
