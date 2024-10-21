@@ -44,6 +44,7 @@ set $gruv_cream1 #EBDBB2
 # Launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened on the original workspace that the command was run on.
 set $menu tofi-run | xargs swaymsg exec --
+set $desktop-menu tofi-drun | xargs swaymsg exec --
 
 # Power Menu
 set $power_menu nwg-bar
@@ -107,6 +108,7 @@ smart_borders on
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+Shift+d exec $desktop-menu
 
     # Open the power menu
     bindsym $mod+x exec $power_menu
@@ -218,7 +220,7 @@ smart_borders on
     # screenshot
     bindsym --no-repeat Print exec grimshot copy output
     # calculator
-    bindsym --no-repeat $mod+c exec galculator
+    bindsym --no-repeat $mod+c exec pidof galculator && swaymsg [app_id=^galculator$] focus || galculator
     # password manager
     bindsym --no-repeat $mod+Shift+b exec bitwarden-desktop
 
@@ -233,6 +235,9 @@ smart_borders on
 
     # askpass
     for_window [title="HALT!"] floating enable
+
+    # gitnuro
+    for_window [class="com-jetpackduba-gitnuro-MainKt"] floating enable
 
 # Label apps running under XWayland
 for_window [shell="xwayland"] title_format "[XWayland] %title"
