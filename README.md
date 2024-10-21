@@ -79,6 +79,7 @@ Plugins are managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 | vesktop | free | customizable discord client | <https://github.com/Vencord/Vesktop> |
 | vifm | free | file manager | <https://vifm.info/> |
 | wev | free | xev-like wayland event viewer | <https://github.com/jwrdegoede/wev> |
+| gitnuro | free | graphical git client | <https://gitnuro.com/> |
 
 ## Useful Links
 
