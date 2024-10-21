@@ -1,24 +1,24 @@
 ## Files
 
-| Config | Syntax | Path | System Path | Purpose | Link |
-| ------ | ------ | ---- | ----------- | ------- | ---- |
-| boxes | boxes | `boxes/` | `~/.config/boxes/` | custom box design | [boxes](https://github.com/ascii-boxes/boxes) |
-| dunst | cfg | `dunst/` | `~/.config/dunst/` | notification daemon | [dunst](https://github.com/dunst-project/dunst) |
-| fastfetch | jsonc | `fastfetch/` | `~/.config/fastfetch` | fetch program | [fastfetch](https://github.com/fastfetch-cli/fastfetch) |
-| foot | dosini | `foot` | `~/.config/foot/` | wayland terminal emulator | [foot](https://codeberg.org/dnkl/foot) |
-| galculator | conf | `galculator/` | `~/.config/galculator/` | simple gtk calculator | [galculator](http://galculator.mnim.org/)
-| gtk-2.0 | gtkrc | `gtk-2.0/` | `~` | gtk2 | [GTK](https://www.gtk.org/) |
-| gtk-3.0 | css, dosini | `gtk-3.0/` | `~/.config/gtk-3.0/` | gtk3 | [GTK](https://www.gtk.org/) |
-| kvantum | - | `kvantum/` | `~/.config/Kvantum/` | Qt theme manager | [kvantum](https://store.kde.org/p/1005410) |
-| nvim | lua, toml | `nvim/` | `~/.config/nvim/` | editor | [neovim](https://neovim.io/) |
-| nwg-bar | json, css | `nwg-bar/` | `~/.config/nwg-bar/` | gtk3 button bar | [nwg-bar](https://github.com/nwg-piotr/nwg-bar) |
-| sway | swayconfig | `sway/` | `~/.config/sway/` | wayland WM based on i3 | [sway](https://swaywm.org/) |
-| tofi | conf | `tofi/` | `~/.config/tofi/` | wayland launcher menu | [tofi](https://github.com/philj56/tofi) |
-| vifm | vifm | `vifm/` | `~/.config/vifm/` | terminal file manager with vi-like bindings | [vifm](https://vifm.info/) |
-| waybar | jsonc, css | `waybar/` | `~/.config/waybar/` | wayland status bar | [waybar](https://github.com/Alexays/Waybar) |
-| xsettingsd | conf | `xsettingsd/` | `~/.config/xsettingsd/` | X settings daemon for XWayland | [xsettingsd](https://wiki.archlinux.org/title/Xsettingsd) |
-| zenity | bash | `zenity/` | `~/.config/zenity/` | wayland-compatible password prompt (`sudo -A`) | [zenity](https://help.gnome.org/users/zenity/stable/) |
-| zsh | zsh | `zsh` | `~` | shell | [zsh](https://zsh.sourceforge.io/) |
+| Config | Syntax | System Path | Purpose | Link |
+| ------ | ------ | ----------- | ------- | ---- |
+| boxes | boxes | `~/.config/boxes/` | custom box design | [boxes](https://github.com/ascii-boxes/boxes) |
+| dunst | cfg | `~/.config/dunst/` | notification daemon | [dunst](https://github.com/dunst-project/dunst) |
+| fastfetch | jsonc | `~/.config/fastfetch` | fetch program | [fastfetch](https://github.com/fastfetch-cli/fastfetch) |
+| foot | dosini | `~/.config/foot/` | wayland terminal emulator | [foot](https://codeberg.org/dnkl/foot) |
+| galculator | conf | `~/.config/galculator/` | simple gtk calculator | [galculator](http://galculator.mnim.org/)
+| gtk-2.0 | gtkrc | `~` | gtk2 | [GTK](https://www.gtk.org/) |
+| gtk-3.0 | css, dosini | `~/.config/gtk-3.0/` | gtk3 | [GTK](https://www.gtk.org/) |
+| kvantum | - | `~/.config/Kvantum/` | Qt theme manager | [kvantum](https://store.kde.org/p/1005410) |
+| nvim | lua, toml | `~/.config/nvim/` | editor | [neovim](https://neovim.io/) |
+| nwg-bar | json, css | `~/.config/nwg-bar/` | gtk3 button bar | [nwg-bar](https://github.com/nwg-piotr/nwg-bar) |
+| sway | swayconfig | `~/.config/sway/` | wayland WM based on i3 | [sway](https://swaywm.org/) |
+| tofi | conf | `~/.config/tofi/` | wayland launcher menu | [tofi](https://github.com/philj56/tofi) |
+| vifm | vifm | `~/.config/vifm/` | terminal file manager with vi-like bindings | [vifm](https://vifm.info/) |
+| waybar | jsonc, css | `~/.config/waybar/` | wayland status bar | [waybar](https://github.com/Alexays/Waybar) |
+| xsettingsd | conf | `~/.config/xsettingsd/` | X settings daemon for XWayland | [xsettingsd](https://wiki.archlinux.org/title/Xsettingsd) |
+| zenity | bash | `~/.config/zenity/` | wayland-compatible password prompt (`sudo -A`) | [zenity](https://help.gnome.org/users/zenity/stable/) |
+| zsh | zsh | `~` | shell | [zsh](https://zsh.sourceforge.io/) |
 
 ## Themes
 
@@ -54,8 +54,6 @@ Plugins are managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 | plenary.nvim | lua API *(unused)* | `nvim/lua/plugins/util.lua` | nvim-lua/plenary.nvim |
 
 ## Extra Waybar Modules
-| Module | Link |
-| ------ | ---- |
 | waybar-module-pacman-updates | <https://github.com/coffebar/waybar-module-pacman-updates> |
 
 ## Tools
@@ -85,9 +83,8 @@ Plugins are managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 ## Useful Links
 
 - [ArchWiki](https://wiki.archlinux.org/title/Main_page)
-- [Awesome Neovim](https://github.com/rockerBOO/awesome-neovim/tree/main)
 - [We Are Wayland Now!](https://wearewaylandnow.com/)
 - [r/swaywm](https://www.reddit.com/r/swaywm/)
-- [r/unixporn](https://www.reddit.com/r/unixporn/)
 - [r/wayland](https://www.reddit.com/r/wayland/)
+- [r/unixporn](https://www.reddit.com/r/unixporn/)
 
