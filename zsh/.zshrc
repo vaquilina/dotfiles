@@ -67,6 +67,10 @@ export KRITA_NO_STYLE_OVERRIDE=1
 # dotfiles repo
 export DOT=$HOME/.dotfiles
 
+# xdg
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=sway
+
 # aliases
 source $HOME/.zsh_aliases 
 
