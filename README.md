@@ -54,6 +54,9 @@ Plugins are managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 | plenary.nvim | lua API *(unused)* | `nvim/lua/plugins/util.lua` | nvim-lua/plenary.nvim |
 
 ## Extra Waybar Modules
+
+| Module | URL |
+| ------ | --- |
 | waybar-module-pacman-updates | <https://github.com/coffebar/waybar-module-pacman-updates> |
 
 ## Tools
