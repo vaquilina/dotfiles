@@ -1,6 +1,6 @@
 -- ▘  ▘▗   ▜
 -- ▌▛▌▌▜▘  ▐ ▌▌▀▌ Vince Aquilina
--- ▌▌▌▌▐▖▗ ▐▖▙▌█▌ updated for neovim v0.11
+-- ▌▌▌▌▐▖▗ ▐▖▙▌█▌ updated for neovim (nightly) v0.11
 -- cels-disable-missing-closed
 --------------- OPTIONS
 vim.g.loaded_netrw = 1 -- disable netrw
@@ -52,7 +52,7 @@ vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- let treesitter handle fol
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()" -- format handled by conform.nvim
 
 -- visualize tabs, newlines, spaces
-vim.o.listchars = "tab:→ ,eol:↴,space:∙"
+vim.o.listchars = "tab:→ ,eol:¬,space:·"
 
 --------------- STATUSLINE
 vim.o.showmode = true -- display the current mode in the statusline
@@ -144,6 +144,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 -- [x][x] nvim-lspconfig    - lsp configuration manager
 -- [x][x] conform           - code formatting
 -- [x][x] coq_nvim          - code autocompletion/snippets
+-- [x][ ] resty             - REST client https://github.com/lima1909/resty.nvim
+-- [x][x] neominimap        - braille buffer minimap
 
 -- lazy plugin manager
 require("config.lazy")
