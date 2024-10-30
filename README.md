@@ -10,7 +10,7 @@
 | gtk-2.0 | gtkrc | `~` | gtk2 | [GTK](https://www.gtk.org/) |
 | gtk-3.0 | css, dosini | `~/.config/gtk-3.0/` | gtk3 | [GTK](https://www.gtk.org/) |
 | kvantum | - | `~/.config/Kvantum/` | Qt theme manager | [kvantum](https://store.kde.org/p/1005410) |
-| nvim | lua, toml | `~/.config/nvim/` | editor | [neovim](https://neovim.io/) |
+| nvim (nightly) | lua, toml | `~/.config/nvim/` | editor | [neovim](https://neovim.io/) |
 | nwg-bar | json, css | `~/.config/nwg-bar/` | gtk3 button bar | [nwg-bar](https://github.com/nwg-piotr/nwg-bar) |
 | sway | swayconfig | `~/.config/sway/` | wayland WM based on i3 | [sway](https://swaywm.org/) |
 | tofi | conf | `~/.config/tofi/` | wayland launcher menu | [tofi](https://github.com/philj56/tofi) |
@@ -51,7 +51,9 @@ Plugins are managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 | nvim-treesitter | highlighting/indentation/folding | `nvim/lua/plugins/coding.lua` | nvim-treesitter/nvim-treesitter |
 | nvim-ts-autotag | auto close/rename HTML tags | `nvim/lua/plugins/coding.lua` | windwp/nvim-ts-autotag |
 | nvim-web-devicons | icons for nvim-tree | `nvim/lua/plugins/editor.lua` | nvim-tree/nvim-web-devicons |
-| plenary.nvim | lua API *(unused)* | `nvim/lua/plugins/util.lua` | nvim-lua/plenary.nvim |
+| plenary.nvim | lua API | `nvim/lua/plugins/util.lua` | nvim-lua/plenary.nvim |
+| resty | REST client | `nvim/lua/plugins/tools.lua` | lima1909/resty.nvim |
+| neominimap | vscode-like minimap (braille) | `nvim/lua/plugins/ui.lua` | Isrothy/neominimap.nvim |
 
 ## Extra Waybar Modules
 
