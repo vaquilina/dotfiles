@@ -1,15 +1,13 @@
 return {
-    -- file explorer icons
+    -- nvim-web-devicons (icons for nvim-tree)
     {
         "nvim-tree/nvim-web-devicons",
-        lazy = true,
+        lazy = false,
         config = function()
-            require("nvim-web-devicons").setup({
-                color_icons = false,
-            })
+            require("nvim-web-devicons").setup()
         end,
     },
-    -- file explorer
+    -- nvim-tree (file explorer)
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
@@ -34,10 +32,16 @@ return {
                     indent_markers = { enable = true },
                     icons = {
                         show = {
-                            modified = true,
                             folder = false,
+                            hidden = true,
                         },
-                        padding = "  ",
+                        padding = " ",
+                        glyphs = {
+                            hidden = "",
+                            git = {
+                                unstaged = "",
+                            },
+                        },
                     },
                 },
                 diagnostics = { enable = true },
@@ -53,6 +57,17 @@ return {
                     vim.api.nvim_set_option_value("statusline", "%t", { win = tree_winid })
                 end
             end)
+        end,
+    },
+    -- nvim-lsp-file-operations (plugin for nvim-tree that hooks into lsp file operations)
+    {
+        "antosha417/nvim-lsp-file-operations",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-tree.lua",
+        },
+        config = function()
+            require("lsp-file-operations").setup()
         end,
     },
 }
