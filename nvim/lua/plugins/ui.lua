@@ -9,9 +9,14 @@ return {
     {
         "chentoast/marks.nvim",
         event = "VeryLazy",
-        opts = {},
+        opts = {
+            excluded_filetypes = {
+                "neominimap",
+            },
+        },
     },
     -- neominimap
+    ---@module "neominimap.config.meta"
     {
         "Isrothy/neominimap.nvim",
         version = "V3.*.*",
@@ -48,10 +53,7 @@ return {
             { "<leader>ns", "<cmd>Neominimap toggleFocus<cr>", desc = "Switch focus on minimap" },
         },
         init = function()
-            -- The following options are recommended when layout == "float"
-            vim.opt.wrap = false
-            vim.opt.sidescrolloff = 36 -- Set a large value
-
+            ---@enum Neominimap.Handler.Annotation
             local AnnotationMode = {
                 Sign = "sign", -- show braille signs in the sign column
                 Icon = "icon", -- show icons in the sign column
@@ -61,7 +63,7 @@ return {
             --- Put your configuration here
             vim.g.neominimap = {
                 -- Enable the plugin by default
-                auto_enable = true,
+                auto_enable = true, ---@type boolean
 
                 -- Log level
                 log_level = vim.log.levels.OFF,
@@ -77,16 +79,6 @@ return {
                     "terminal",
                     "prompt",
                 },
-
-                -- When false is returned, the minimap will not be created for this buffer
-                buf_filter = function()
-                    return true
-                end,
-
-                -- When false is returned, the minimap will not be created for this window
-                win_filter = function()
-                    return true
-                end,
 
                 -- How many columns a dot should span
                 x_multiplier = 4,
@@ -113,86 +105,88 @@ return {
                     close_if_last_window = true,
                 },
 
-                -- Used when `layout` is set to `float`
-                float = {
-                    minimap_width = 20,
+                -- Minimap refresh delay after text change
+                delay = 200,
 
-                    -- If set to nil, there is no maximum height restriction
-                    max_minimap_height = nil,
+                -- Sync the cursor position with the minimap
+                sync_cursor = true,
 
-                    margin = {
-                        right = 0,
-                        top = 0,
-                        bottom = 0,
-                    },
-
-                    -- Border style of the floating window
-                    -- Accepts all usual border styles ["single", "double", "none", "shadow"]
-                    window_border = "none",
-
-                    -- Minimap refresh delay after text change
-                    delay = 200,
-
-                    -- Sync the cursor position with the minimap
-                    sync_cursor = true,
-
-                    click = {
-                        -- Enable mouse click on minimap
-                        enabled = false,
-                        -- Automatically switch focus to minimap when clicked
-                        auto_switch_focus = true,
-                    },
-
-                    diagnostic = {
-                        enabled = true,
-                        severity = vim.diagnostic.severity.WARN,
-                        mode = AnnotationMode.Line,
-                        priority = {
-                            ERROR = 100,
-                            WARN = 90,
-                            INFO = 80,
-                            HINT = 70,
-                        },
-                        icon = {
-                            ERROR = "󰅚 ",
-                            WARN = "󰀪 ",
-                            INFO = "󰌶 ",
-                            HINT = " ",
-                        },
-                    },
-
-                    git = {
-                        enabled = true,
-                        mode = AnnotationMode.Sign,
-                        priority = 6,
-                        icon = {
-                            add = "+ ",
-                            change = "~ ",
-                            delete = "- ",
-                        },
-                    },
-
-                    search = {
-                        enabled = true,
-                        mode = AnnotationMode.Icon,
-                        priority = 10,
-                        key = "m",
-                        show_builtins = false, -- shows the builtin marks like [ ] < >
-                    },
-
-                    fold = {
-                        -- Consider folds when rendering minimap
-                        enabled = true,
-                    },
-
-                    -- Override the default winopt
-                    --winopt = function(opt, winid) end,
-
-                    -- Override the default bufopt
-                    --bufopt = function(opt, bufnr) end,
-
-                    handlers = {},
+                click = {
+                    -- Enable mouse click on minimap
+                    enabled = false,
+                    -- Automatically switch focus to minimap when clicked
+                    auto_switch_focus = true,
                 },
+
+                diagnostic = {
+                    enabled = true,
+                    severity = vim.diagnostic.severity.WARN,
+                    mode = AnnotationMode.Line,
+                    priority = {
+                        ERROR = 100,
+                        WARN = 90,
+                        INFO = 80,
+                        HINT = 70,
+                    },
+                },
+
+                git = {
+                    enabled = true,
+                    mode = AnnotationMode.Icon,
+                    priority = 6,
+                    icon = {
+                        add = "+ ", ---@type string
+                        change = "~ ", ---@type string
+                        delete = "- ", ---@type string
+                    },
+                },
+
+                search = {
+                    enabled = true,
+                    mode = AnnotationMode.Line,
+                    priority = 10,
+                },
+
+                treesitter = {
+                    enabled = true,
+                    priority = 200,
+                },
+
+                fold = {
+                    -- Consider folds when rendering minimap
+                    enabled = true,
+                },
+
+                --  Override the default winopt
+                winopt = function(opt, winid)
+                    return {
+                        winhighlight = table.concat({
+                            "Normal:NeominimapBackground",
+                            "FloatBorder:NeominimapBorder",
+                            "CursorLine:NeominimapCursorLine",
+                            "CursorLineNr:NeominimapCursorLineNr",
+                            "CursorLineSign:NeominimapCursorLineSign",
+                            "CursorLineFold:NeominimapCursorLineFold",
+                        }, ","),
+                        wrap = false,
+                        foldcolumn = "0",
+                        signcolumn = "yes:2",
+                        cursorcolumn = false,
+                        number = false,
+                        relativenumber = false,
+                        scrolloff = 99999, -- To center minimap
+                        sidescrolloff = 0,
+                        winblend = 0,
+                        cursorline = true,
+                        spell = false,
+                        list = false,
+                        fillchars = "eob: ",
+                        winfixwidth = true,
+                    }
+                end,
+
+                -- Override the default bufopt
+                --bufopt = function(opt, bufnr) end,
             }
         end,
     },
