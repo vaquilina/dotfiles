@@ -29,7 +29,7 @@ vim.o.shiftwidth = 4 -- number of spaces used for (auto)indent step
 vim.o.wrap = false -- don't wrap long lines
 
 vim.o.cursorline = true -- highlight current line
-vim.o.cursorcolumn = true -- highlight current column
+--vim.o.cursorcolumn = true -- highlight current column
 
 vim.o.showmatch = true -- briefly jump to the matching bracket after you insert one
 vim.o.matchtime = 3 -- move the cursor back in 3/10s of a second after matching
@@ -46,6 +46,7 @@ vim.o.wildignore = "*.swp,*.bak,*.pyc,*.class" -- files matching these patterns 
 vim.o.scrolloff = 20 -- minimum number of lines while scrolling
 vim.o.sidescrolloff = 5 -- minimum number of columns while side-scrolling
 
+vim.opt.foldlevelstart = 99 -- start with all folds open
 vim.wo.foldmethod = "expr" -- fold levels defined by expression
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- let treesitter handle folding
 
@@ -87,9 +88,6 @@ vim.keymap.set("n", "<leader><space>", ":let @/=''<cr>")
 -- toggle visualize tabs, newlines, spaces
 vim.keymap.set("n", "<leader>l", ":set list!<cr>")
 
--- convert the current WORD to uppercase in insert mode
-vim.keymap.set("i", "<c-u>", "<esc>viwU<esc>ea")
-
 -- covert the current LINE to uppercase in insert mode
 vim.keymap.set("i", "<c-l>", "<c-o>VU<esc><End><esc>A")
 
@@ -130,22 +128,35 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     command = "setfiletype boxes",
 })
 
+-- Use cursorcolumn only in the focused window
+vim.api.nvim_create_autocmd({ "WinLeave" }, {
+    callback = function()
+        vim.o.cursorcolumn = false
+    end,
+})
+vim.api.nvim_create_autocmd({ "WinEnter" }, {
+    callback = function()
+        vim.o.cursorcolumn = true
+    end,
+})
+
 --------------- PLUGINS
 --  I  C    (I - installed, C - configured)
--- [x][x] gruvbox.nvim      - lua port of gruvbox colorscheme
--- [x][-] plenary.nvim      - lua api for neovim
--- [x][x] marks             - marks in sign column
--- [x][x] nvim-tree         - filesystem tree explorer
--- [x][x] nvim-web-devicons - icons for nvim-tree
--- [x][x] indent-blankline  - show indents & current context
--- [x][x] gitsigns.nvim     - git marks/blame line
--- [x][x] nvim-treesitter   - language parsers (highlighting, indentation, folding)
--- [x][x] nvim-ts-autotag   - auto-close/rename of html tags
--- [x][x] nvim-lspconfig    - lsp configuration manager
--- [x][x] conform           - code formatting
--- [x][x] coq_nvim          - code autocompletion/snippets
--- [x][ ] resty             - REST client https://github.com/lima1909/resty.nvim
--- [x][x] neominimap        - braille buffer minimap
+-- [x][x] gruvbox.nvim              - lua port of gruvbox colorscheme
+-- [x][-] plenary.nvim              - lua api for neovim
+-- [x][x] marks                     - marks in sign column
+-- [x][x] nvim-tree                 - filesystem tree explorer
+-- [x][x] nvim-web-devicons         - icons for nvim-tree
+-- [x][x] nvim-lsp-file-operations  - lsp file operations integration with nvim-tree
+-- [x][x] indent-blankline          - show indents & current context
+-- [x][x] gitsigns.nvim             - git marks/blame line
+-- [x][x] nvim-treesitter           - language parsers (highlighting, indentation, folding)
+-- [x][x] nvim-ts-autotag           - auto-close/rename of html tags
+-- [x][x] nvim-lspconfig            - lsp configuration manager
+-- [x][x] conform                   - code formatting
+-- [x][x] coq_nvim                  - code autocompletion/snippets
+-- [x][ ] resty                     - REST client https://github.com/lima1909/resty.nvim
+-- [x][x] neominimap                - braille buffer minimap
 
 -- lazy plugin manager
 require("config.lazy")
