@@ -54,6 +54,7 @@ Plugins are managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 | plenary.nvim | lua API | `nvim/lua/plugins/util.lua` | nvim-lua/plenary.nvim |
 | resty | REST client | `nvim/lua/plugins/tools.lua` | lima1909/resty.nvim |
 | neominimap | vscode-like minimap (braille) | `nvim/lua/plugins/ui.lua` | Isrothy/neominimap.nvim |
+| nvim-lsp-file-operations | lsp file operations integration | `nvim/lua/plugins/coding.lua` | antosha417/nvim-lsp-file-operations |
 
 ## Extra Waybar Modules
 
