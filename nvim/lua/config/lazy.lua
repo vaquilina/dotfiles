@@ -21,9 +21,12 @@ require("lazy").setup({
         -- import plugins
         { import = "plugins" },
     },
-    -- Configure any other settings
-    -- colorscheme that will be used when installing plugins
     install = { colorscheme = { "gruvbox" } },
     -- automatically check for plugin updates
     checker = { enabled = true },
+    change_detection = {
+        enabled = false,
+        notify = false,
+    },
+    ui = { border = "single" },
 })
