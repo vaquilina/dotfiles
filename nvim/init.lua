@@ -55,6 +55,24 @@ vim.o.formatexpr = "v:lua.require'conform'.formatexpr()" -- format handled by co
 -- visualize tabs, newlines, spaces
 vim.o.listchars = "tab:→ ,eol:¬,space:·"
 
+local border = {
+    { "🭽", "FloatBorder" },
+    { "▔", "FloatBorder" },
+    { "🭾", "FloatBorder" },
+    { "▕", "FloatBorder" },
+    { "🭿", "FloatBorder" },
+    { "▁", "FloatBorder" },
+    { "🭼", "FloatBorder" },
+    { "▏", "FloatBorder" },
+}
+
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    opts.border = opts.border or border
+    return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
 --------------- STATUSLINE
 vim.o.showmode = true -- display the current mode in the statusline
 vim.o.statusline = "%f %y %H%m%r%=%-14.(%l,%c%V%) %P" -- custom statusline
