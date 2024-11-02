@@ -3,7 +3,7 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
-        config = true,
+        opts = {},
     },
     -- marks in sign column
     {
@@ -55,9 +55,9 @@ return {
         init = function()
             ---@enum Neominimap.Handler.Annotation
             local AnnotationMode = {
-                Sign = "sign", -- show braille signs in the sign column
-                Icon = "icon", -- show icons in the sign column
-                Line = "line", -- highlight the background of the line on the minimap
+                Sign = "sign", ---@type string -- show braille signs in the sign column
+                Icon = "icon", ---@type string -- show icons in the sign column
+                Line = "line", ---@type string -- highlight the background of the line on the minimap
             }
 
             --- Put your configuration here
@@ -73,49 +73,49 @@ return {
 
                 -- Minimap will not be created for buffers of these types
                 exclude_buftypes = {
-                    "nofile",
-                    "nowrite",
-                    "quickfix",
-                    "terminal",
-                    "prompt",
+                    "nofile", ---@type string
+                    "nowrite", ---@type string
+                    "quickfix", ---@type string
+                    "terminal", ---@type string
+                    "prompt", ---@type string
                 },
 
                 -- How many columns a dot should span
-                x_multiplier = 4,
+                x_multiplier = 4, ---@type number
 
                 -- How many rows a dot should span
-                y_multiplier = 1,
+                y_multiplier = 1, ---@type number
 
                 -- Either `split` or `float`
                 -- `float` - minimap will be created in floating windows attached to all suitable windows
                 -- `split` - minimap will be created in one split window
-                layout = "split",
+                layout = "split", ---@type "float"|"split"
 
                 -- Used when `layout` is set to `split`
                 split = {
-                    minimap_width = 20,
+                    minimap_width = 20, ---@type number
 
                     -- Always fix the width of the split window
-                    fix_width = true,
+                    fix_width = true, ---@type boolean
 
                     -- split direction ("left" or "right")
-                    direction = "right",
+                    direction = "right", ---@type "left"|"right"
 
                     -- Automatically close the split window when it is the last window
-                    close_if_last_window = true,
+                    close_if_last_window = true, ---@type boolean
                 },
 
                 -- Minimap refresh delay after text change
-                delay = 200,
+                delay = 200, ---@type number
 
                 -- Sync the cursor position with the minimap
-                sync_cursor = true,
+                sync_cursor = true, ---@type boolean
 
                 click = {
                     -- Enable mouse click on minimap
-                    enabled = false,
+                    enabled = false, ---@type boolean
                     -- Automatically switch focus to minimap when clicked
-                    auto_switch_focus = true,
+                    auto_switch_focus = true, ---@type boolean
                 },
 
                 diagnostic = {
@@ -123,10 +123,10 @@ return {
                     severity = vim.diagnostic.severity.WARN,
                     mode = AnnotationMode.Line,
                     priority = {
-                        ERROR = 100,
-                        WARN = 90,
-                        INFO = 80,
-                        HINT = 70,
+                        ERROR = 100, ---@type number
+                        WARN = 90, ---@type number
+                        INFO = 80, ---@type number
+                        HINT = 70, ---@type number
                     },
                 },
 
@@ -168,20 +168,20 @@ return {
                             "CursorLineSign:NeominimapCursorLineSign",
                             "CursorLineFold:NeominimapCursorLineFold",
                         }, ","),
-                        wrap = false,
-                        foldcolumn = "0",
-                        signcolumn = "yes:2",
-                        cursorcolumn = false,
-                        number = false,
-                        relativenumber = false,
-                        scrolloff = 99999, -- To center minimap
-                        sidescrolloff = 0,
-                        winblend = 0,
-                        cursorline = true,
-                        spell = false,
-                        list = false,
-                        fillchars = "eob: ",
-                        winfixwidth = true,
+                        wrap = false, ---@type boolean
+                        foldcolumn = "0", ---@type string
+                        signcolumn = "yes:2", ---@type string
+                        cursorcolumn = false, ---@type boolean
+                        number = false, ---@type boolean
+                        relativenumber = false, ---@type boolean
+                        scrolloff = 99999, ---@type number -- To center minimap
+                        sidescrolloff = 0, ---@type number
+                        winblend = 0, ---@type number
+                        cursorline = true, ---@type boolean
+                        spell = false, ---@type boolean
+                        list = false, ---@type boolean
+                        fillchars = "eob: ", ---@type string
+                        winfixwidth = true, ---@type boolean
                     }
                 end,
 

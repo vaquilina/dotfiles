@@ -3,9 +3,7 @@ return {
     {
         "nvim-tree/nvim-web-devicons",
         lazy = false,
-        config = function()
-            require("nvim-web-devicons").setup()
-        end,
+        opts = {},
     },
     -- nvim-tree (file explorer)
     {
@@ -15,39 +13,38 @@ return {
         dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
-        config = function()
-            require("nvim-tree").setup({
-                disable_netrw = true,
-                hijack_cursor = true, -- keep cursor on 1st letter of filename
-                view = {
-                    preserve_window_proportions = true,
-                    number = true, -- show line numbers
-                    relativenumber = true, -- relative line numbers (hybrid when number is also true)
-                    width = 36,
-                    float = { enable = false },
-                },
-                renderer = {
-                    add_trailing = true,
-                    highlight_opened_files = "all",
-                    indent_markers = { enable = true },
-                    icons = {
-                        show = {
-                            folder = false,
-                            hidden = true,
-                        },
-                        padding = " ",
-                        glyphs = {
-                            hidden = "",
-                            git = {
-                                unstaged = "",
-                            },
+        opts = {
+            disable_netrw = true,
+            hijack_cursor = true, -- keep cursor on 1st letter of filename
+            view = {
+                preserve_window_proportions = true,
+                number = true, -- show line numbers
+                relativenumber = true, -- relative line numbers (hybrid when number is also true)
+                width = 36,
+                float = { enable = false },
+            },
+            renderer = {
+                add_trailing = true,
+                highlight_opened_files = "all",
+                indent_markers = { enable = true },
+                icons = {
+                    show = {
+                        folder = false,
+                        hidden = true,
+                    },
+                    padding = " ",
+                    glyphs = {
+                        hidden = "",
+                        git = {
+                            unstaged = "",
                         },
                     },
                 },
-                diagnostics = { enable = true },
-                modified = { enable = true },
-            })
-
+            },
+            diagnostics = { enable = true },
+            modified = { enable = true },
+        },
+        init = function()
             -- use simple statusline for nvim-tree windows
             local nt_api = require("nvim-tree.api")
             nt_api.events.subscribe(nt_api.events.Event.TreeOpen, function()
@@ -66,8 +63,6 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-tree.lua",
         },
-        config = function()
-            require("lsp-file-operations").setup()
-        end,
+        opts = {},
     },
 }
