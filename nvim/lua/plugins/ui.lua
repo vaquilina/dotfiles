@@ -1,3 +1,4 @@
+---@module 'neominimap.config.meta'
 return {
     -- indent guides
     {
@@ -11,12 +12,15 @@ return {
         event = "VeryLazy",
         opts = {
             excluded_filetypes = {
+                "",
                 "neominimap",
+                "lspinfo",
+                "registers",
+                "help",
             },
         },
     },
     -- neominimap
-    ---@module "neominimap.config.meta"
     {
         "Isrothy/neominimap.nvim",
         version = "V3.*.*",
@@ -55,15 +59,16 @@ return {
         init = function()
             ---@enum Neominimap.Handler.Annotation
             local AnnotationMode = {
-                Sign = "sign", ---@type string -- show braille signs in the sign column
-                Icon = "icon", ---@type string -- show icons in the sign column
-                Line = "line", ---@type string -- highlight the background of the line on the minimap
+                Sign = "sign", -- show braille signs in the sign column
+                Icon = "icon", -- show icons in the sign column
+                Line = "line", -- highlight the background of the line on the minimap
             }
 
             --- Put your configuration here
+            ---@type Neominimap.UserConfig
             vim.g.neominimap = {
                 -- Enable the plugin by default
-                auto_enable = true, ---@type boolean
+                auto_enable = true,
 
                 -- Log level
                 log_level = vim.log.levels.OFF,
@@ -71,51 +76,54 @@ return {
                 -- Notification level
                 notification_level = vim.log.levels.INFO,
 
+                -- Path to the log file
+                log_path = vim.fn.stdpath("data") .. "/neominimap.log",
+
                 -- Minimap will not be created for buffers of these types
                 exclude_buftypes = {
-                    "nofile", ---@type string
-                    "nowrite", ---@type string
-                    "quickfix", ---@type string
-                    "terminal", ---@type string
-                    "prompt", ---@type string
+                    "nofile",
+                    "nowrite",
+                    "quickfix",
+                    "terminal",
+                    "prompt",
                 },
 
                 -- How many columns a dot should span
-                x_multiplier = 4, ---@type number
+                x_multiplier = 4,
 
                 -- How many rows a dot should span
-                y_multiplier = 1, ---@type number
+                y_multiplier = 1,
 
                 -- Either `split` or `float`
                 -- `float` - minimap will be created in floating windows attached to all suitable windows
                 -- `split` - minimap will be created in one split window
-                layout = "split", ---@type "float"|"split"
+                layout = "split",
 
                 -- Used when `layout` is set to `split`
                 split = {
-                    minimap_width = 20, ---@type number
+                    minimap_width = 18,
 
                     -- Always fix the width of the split window
-                    fix_width = true, ---@type boolean
+                    fix_width = true,
 
-                    -- split direction ("left" or "right")
-                    direction = "right", ---@type "left"|"right"
+                    -- split direction
+                    direction = "right",
 
                     -- Automatically close the split window when it is the last window
-                    close_if_last_window = true, ---@type boolean
+                    close_if_last_window = true,
                 },
 
                 -- Minimap refresh delay after text change
-                delay = 200, ---@type number
+                delay = 200,
 
                 -- Sync the cursor position with the minimap
-                sync_cursor = true, ---@type boolean
+                sync_cursor = true,
 
                 click = {
                     -- Enable mouse click on minimap
-                    enabled = false, ---@type boolean
+                    enabled = false,
                     -- Automatically switch focus to minimap when clicked
-                    auto_switch_focus = true, ---@type boolean
+                    auto_switch_focus = true,
                 },
 
                 diagnostic = {
@@ -123,10 +131,10 @@ return {
                     severity = vim.diagnostic.severity.WARN,
                     mode = AnnotationMode.Line,
                     priority = {
-                        ERROR = 100, ---@type number
-                        WARN = 90, ---@type number
-                        INFO = 80, ---@type number
-                        HINT = 70, ---@type number
+                        ERROR = 100,
+                        WARN = 90,
+                        INFO = 80,
+                        HINT = 70,
                     },
                 },
 
@@ -135,9 +143,9 @@ return {
                     mode = AnnotationMode.Icon,
                     priority = 6,
                     icon = {
-                        add = "+ ", ---@type string
-                        change = "~ ", ---@type string
-                        delete = "- ", ---@type string
+                        add = "+ ",
+                        change = "~ ",
+                        delete = "- ",
                     },
                 },
 
@@ -157,9 +165,9 @@ return {
                     enabled = true,
                 },
 
-                --  Override the default winopt
+                ---Overrite the default winopt
                 winopt = function(opt, winid)
-                    return {
+                    local o = {
                         winhighlight = table.concat({
                             "Normal:NeominimapBackground",
                             "FloatBorder:NeominimapBorder",
@@ -183,6 +191,10 @@ return {
                         fillchars = "eob: ", ---@type string
                         winfixwidth = true, ---@type boolean
                     }
+
+                    for k, v in pairs(o) do
+                        opt[k] = v
+                    end
                 end,
 
                 -- Override the default bufopt
