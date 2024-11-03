@@ -3,54 +3,60 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        opts = {
-            ensure_installed = {
-                "bash",
-                "c",
-                "cmake",
-                "comment",
-                "cpp",
-                "css",
-                "csv",
-                "diff",
-                "gitignore",
-                "html",
-                "http",
-                "ini",
-                "java",
-                "javascript",
-                "jsdoc",
-                "json",
-                "jsonc",
-                "lua",
-                "luadoc",
-                "markdown",
-                "markdown_inline",
-                "nix",
-                "php",
-                "phpdoc",
-                "python",
-                "regex",
-                "rust",
-                "scss",
-                "sql",
-                "tsx",
-                "typescript",
-                "udev",
-                "vim",
-                "vimdoc",
-                "yaml",
-                "zathurarc",
-            },
-            sync_install = false,
-            highlight = { enable = true },
-            indent = {
-                enable = true,
-                disable = { "lua" },
-            },
-            additional_vim_regex_highlighting = false,
-        },
+        config = function()
+            local configs = require("nvim-treesitter.configs")
+            configs.setup({
+                ensure_installed = {
+                    "bash",
+                    "c",
+                    "cmake",
+                    "comment",
+                    "cpp",
+                    "css",
+                    "csv",
+                    "diff",
+                    "gitignore",
+                    "html",
+                    "http",
+                    "ini",
+                    "java",
+                    "javascript",
+                    "jsdoc",
+                    "json",
+                    "jsonc",
+                    "lua",
+                    "luadoc",
+                    "markdown",
+                    "markdown_inline",
+                    "nix",
+                    "php",
+                    "phpdoc",
+                    "python",
+                    "regex",
+                    "rust",
+                    "scss",
+                    "sql",
+                    "tsx",
+                    "typescript",
+                    "udev",
+                    "vim",
+                    "vimdoc",
+                    "yaml",
+                    "zathurarc",
+                },
+                sync_install = false,
+                auto_install = true,
+                ignore_install = {},
+                highlight = { enable = true, additional_vim_regex_highlighting = false },
+                indent = {
+                    enable = true,
+                    disable = { "lua" },
+                },
+                modules = {},
+            })
+        end,
     },
+    { "nvim-treesitter/nvim-treesitter-textobjects" },
     -- ts-autotag
     {
         "windwp/nvim-ts-autotag",
@@ -86,15 +92,16 @@ return {
             -- js/ts/jsx/tsx/json/css/graphql (biome)
             lspconfig.biome.setup(coq.lsp_ensure_capabilities({
                 filetypes = {
+                    "astro",
+                    "css",
+                    "graphql",
                     "javascript",
                     "javascriptreact",
+                    "svelte",
                     "typescript",
                     "typescript.tsx",
                     "typescriptreact",
-                    "astro",
-                    "svelte",
                     "vue",
-                    "css",
                 },
             }))
 
@@ -118,15 +125,17 @@ return {
             -- lua
             lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({
                 on_init = function(client)
-                    local path = client.workspace_folders[1].name
-                    if vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc") then
-                        return
+                    if client.workspace_folders then
+                        local path = client.workspace_folders[1].name
+                        if vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc") then
+                            return
+                        end
                     end
 
                     client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
                         runtime = {
                             -- Tell the language server which version of Lua you're using
-                            -- (most likely LuaJIT in the case of Neovim)
+                            -- (most likely LuaJIT in the case of neovim)
                             version = "LuaJIT",
                         },
                         -- Make the server aware of Neovim runtime files
@@ -134,10 +143,12 @@ return {
                             checkThirdParty = false,
                             library = {
                                 vim.env.VIMRUNTIME,
-                                -- Depending on the usage, you might want to add additional paths here.
-                                -- "${3rd}/luv/library"
+                                -- Depending on the usage, you might want to add additional paths here
+                                -- "${3rd}/luv/library",
                                 -- "${3rd}/busted/library",
                             },
+                            -- or pull in all of 'runtimepath'. NOTE: this is a lot slower and will cause issues when
+                            -- library = vim.api.nvim_get_runtime_file("", true)
                         },
                     })
                 end,
@@ -197,9 +208,13 @@ return {
         ft = "lua", -- only load on lua files
         opts = {
             library = {
-                -- See the configuration section for more details
                 "neominimap.nvim",
+                "lazy.nvim",
+                -- Load luvit types when the `vim.uv` word is found
+                { path = "luvit-meta/library", words = { "vim%.uv" } },
             },
         },
     },
+    -- optional `vim.uv` typings
+    { "Bilal2453/luvit-meta", lazy = true },
 }
