@@ -167,6 +167,7 @@ return {
 
                 ---Overrite the default winopt
                 winopt = function(opt, winid)
+                    ---@type vim.wo
                     local o = {
                         winhighlight = table.concat({
                             "Normal:NeominimapBackground",
@@ -176,20 +177,20 @@ return {
                             "CursorLineSign:NeominimapCursorLineSign",
                             "CursorLineFold:NeominimapCursorLineFold",
                         }, ","),
-                        wrap = false, ---@type boolean
-                        foldcolumn = "0", ---@type string
-                        signcolumn = "yes:2", ---@type string
-                        cursorcolumn = false, ---@type boolean
-                        number = false, ---@type boolean
-                        relativenumber = false, ---@type boolean
-                        scrolloff = 99999, ---@type number -- To center minimap
-                        sidescrolloff = 0, ---@type number
-                        winblend = 0, ---@type number
-                        cursorline = true, ---@type boolean
-                        spell = false, ---@type boolean
-                        list = false, ---@type boolean
-                        fillchars = "eob: ", ---@type string
-                        winfixwidth = true, ---@type boolean
+                        wrap = false,
+                        foldcolumn = "0",
+                        signcolumn = "yes:2",
+                        cursorcolumn = false,
+                        number = false,
+                        relativenumber = false,
+                        scrolloff = 99999,
+                        sidescrolloff = 0,
+                        winblend = 0,
+                        cursorline = true,
+                        spell = false,
+                        list = false,
+                        fillchars = "eob: ",
+                        winfixwidth = true,
                     }
 
                     for k, v in pairs(o) do
