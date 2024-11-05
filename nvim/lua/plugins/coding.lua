@@ -60,7 +60,7 @@ return {
     -- ts-autotag
     {
         "windwp/nvim-ts-autotag",
-        opts = {},
+        config = true,
     },
     -- lspconfig
     {
