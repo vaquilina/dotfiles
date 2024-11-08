@@ -15,6 +15,9 @@ return {
                     "css",
                     "csv",
                     "diff",
+                    "git_config",
+                    "git_rebase",
+                    "gitattributes",
                     "gitignore",
                     "html",
                     "http",
@@ -23,12 +26,14 @@ return {
                     "javascript",
                     "jsdoc",
                     "json",
+                    "json5",
                     "jsonc",
                     "lua",
                     "luadoc",
                     "markdown",
                     "markdown_inline",
                     "nix",
+                    "passwd",
                     "php",
                     "phpdoc",
                     "python",
@@ -36,6 +41,9 @@ return {
                     "rust",
                     "scss",
                     "sql",
+                    "ssh_config",
+                    "superhtml",
+                    "toml",
                     "tsx",
                     "typescript",
                     "udev",
@@ -97,6 +105,7 @@ return {
                     "graphql",
                     "javascript",
                     "javascriptreact",
+                    "json",
                     "svelte",
                     "typescript",
                     "typescript.tsx",
@@ -104,6 +113,7 @@ return {
                     "vue",
                 },
             }))
+            lspconfig.ts_ls.setup(coq.lsp_ensure_capabilities({}))
 
             -- json
             local json_capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -171,6 +181,9 @@ return {
 
             -- pkgbuild
             lspconfig.pkgbuild_language_server.setup(coq.lsp_ensure_capabilities({}))
+
+            -- html5
+            lspconfig.superhtml.setup(coq.lsp_ensure_capabilities({}))
         end,
     },
     -- conform
@@ -181,7 +194,7 @@ return {
                 c = { "clang-format" },
                 cpp = { "clang-format" },
                 css = { "biome" },
-                html = { "htmlbeautifier" },
+                html = { "superhtml" },
                 javascript = { "biome" },
                 javascriptreact = { "biome" },
                 json = { "biome" },
@@ -199,6 +212,19 @@ return {
             format_on_save = {
                 lsp_format = "fallback",
                 timeout_ms = 500,
+            },
+            formatters = {
+                injected = {
+                    bash = "sh",
+                    javascript = "js",
+                    latex = "tex",
+                    markdown = "md",
+                    python = "py",
+                    ruby = "rb",
+                    rust = "rs",
+                    typescript = "ts",
+                    javascriptreact = "jsx",
+                },
             },
         },
     },
