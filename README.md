@@ -6,7 +6,7 @@
 | dunst | cfg | `~/.config/dunst/` | notification daemon | [dunst](https://github.com/dunst-project/dunst) |
 | fastfetch | jsonc | `~/.config/fastfetch` | fetch program | [fastfetch](https://github.com/fastfetch-cli/fastfetch) |
 | foot | dosini | `~/.config/foot/` | wayland terminal emulator | [foot](https://codeberg.org/dnkl/foot) |
-| galculator | conf | `~/.config/galculator/` | simple gtk calculator | [galculator](http://galculator.mnim.org/)
+| galculator | conf | `~/.config/galculator/` | simple gtk calculator | [galculator](http://galculator.mnim.org/) |
 | gtk-2.0 | gtkrc | `~` | gtk2 | [GTK](https://www.gtk.org/) |
 | gtk-3.0 | css, dosini | `~/.config/gtk-3.0/` | gtk3 | [GTK](https://www.gtk.org/) |
 | kvantum | - | `~/.config/Kvantum/` | Qt theme manager | [kvantum](https://store.kde.org/p/1005410) |
@@ -56,6 +56,7 @@ Plugins are managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
 | neominimap | vscode-like minimap (braille) | `nvim/lua/plugins/ui.lua` | Isrothy/neominimap.nvim |
 | nvim-lsp-file-operations | lsp file operations integration | `nvim/lua/plugins/coding.lua` | antosha417/nvim-lsp-file-operations |
 | lazydev | faster luals setup | `nvim/lua/plugins/coding.lua` | folke/lazydev.nvim |
+| render-markdown | render markdown inline | `nvim/lua/plugins/editor.lua` | MeanderingProgrammer/render-markdown.nvim |
 
 ## Extra Waybar Modules
 
