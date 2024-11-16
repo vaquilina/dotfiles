@@ -158,6 +158,17 @@ vim.api.nvim_create_autocmd({ "WinEnter" }, {
     end,
 })
 
+-- Start zathura-language-server when entering a zathura buffer
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "zathurarc*" },
+    callback = function()
+        vim.lsp.start({
+            name = "zathura",
+            cmd = { "zathura-language-server" },
+        })
+    end,
+})
+
 --------------- PLUGINS
 --  I  C    (I - installed, C - configured)
 -- [x][x] gruvbox.nvim              - lua port of gruvbox colorscheme
@@ -175,6 +186,7 @@ vim.api.nvim_create_autocmd({ "WinEnter" }, {
 -- [x][x] coq_nvim                  - code autocompletion/snippets
 -- [x][ ] resty                     - REST client https://github.com/lima1909/resty.nvim
 -- [x][x] neominimap                - braille buffer minimap
+-- [x][ ] render-markdown           - render markdown inline
 
 -- lazy plugin manager
 require("config.lazy")
